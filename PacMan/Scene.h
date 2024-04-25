@@ -2,22 +2,35 @@
 #include<SFML/Graphics.hpp>
 #include<vector>
 #include"Entity.h"
+#include "Camera.h"
 
 class Scene {
 public:
+	Scene(sf::RenderWindow* window) { _camera = new Camera(window); }
 
 	virtual void init() = 0;
 	void update(float deltaTime) {
 		for (Entity *entity: _entities) {
 			entity->update(deltaTime);
 		}
+		_camera->update();
 	} 
 	void draw(sf::RenderWindow* window) {
 		for (Entity* entity : _entities) {
 			entity->draw(window);
 		}
 	}
-	virtual void cleanUp() = 0;
+	virtual void cleanUp(){
+		for (Entity* entity : _entities) {
+			delete entity;
+		}
+		_entities.clear();
+		delete _camera;
+	}
+
+	inline Camera* getCamera() {
+		return _camera;
+	}
 
 protected:
 
@@ -41,5 +54,6 @@ protected:
 	}
 
 	std::vector<Entity*> _entities;
+	Camera* _camera;
 
 };

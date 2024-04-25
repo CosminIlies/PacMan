@@ -3,61 +3,45 @@
 #include "SceneManager.h"
 
 
-Entity::Entity(const char * texturePath, const char* name):name(name), position(sf::Vector2f(0, 0)), rotation(0), scale(sf::Vector2f(1,1))
+
+
+Entity::Entity(Sprite* sprite, const char* name, sf::Vector2f position, float rot, sf::Vector2f scale):name(name), position(position), rotation(rot), scale(scale)
 {
+	this->sprite = sprite;
 
-	if (!_texture.loadFromFile(texturePath))
-	{
-		LOG_ERROR("Texture not loaded");
-	}
-
-	_sprite.setTexture(_texture);
-	_sprite.setPosition(position);
-	_sprite.setRotation(rotation);
-	_sprite.setScale(scale);
-	_sprite.setOrigin(sf::Vector2f(_texture.getSize().x / 2.0f, _texture.getSize().y / 2.0f));
+	if (this->sprite == nullptr)
+		return;
+	this->sprite->updateSprite(position, rotation, scale, 0.0f);
 }
 
-Entity::Entity(const char* texturePath, const char* name, sf::Vector2f position, float rot, sf::Vector2f scale):name(name), position(position), rotation(rot), scale(scale)
-{
-	if (!_texture.loadFromFile(texturePath))
-	{
-		LOG_ERROR("Texture not loaded");
-	}
-
-	_sprite.setTexture(_texture);
-	_sprite.setPosition(position);
-	_sprite.setRotation(rotation);
-	_sprite.setScale(scale);
+Entity::Entity(Entity& entity) {
+	name = entity.name;
+	position = entity.position;
+	rotation = entity.rotation;
+	scale = entity.scale;
+	this->sprite = new Sprite(* entity.sprite);
 }
 
 Entity::~Entity()
 {
+	if (sprite == nullptr)
+		return;
+	delete sprite;
 }
 
 void Entity::update(float deltaTime)
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::O)) {
-		LOG_TRACE("Prev Scene");
-		SceneManager::getInstance()->previousScene();
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
-		LOG_INFO("Next Scene");
-		SceneManager::getInstance()->nextScene();
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)) {
-		LOG_WARNING("Next Scene");
 
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::L)) {
-		LOG_ERROR("Next Scene");
-	}
+	if (sprite == nullptr)
+		return;
 
-
-	updateTransformations();
+	sprite->updateSprite(position, rotation, scale, deltaTime);
 }
 
 void Entity::draw(sf::RenderWindow* window)
 {
-	window->draw(_sprite);
+	if (sprite == nullptr)
+		return;
+
+	window->draw(sprite->sprite);
 }

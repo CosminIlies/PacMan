@@ -32,6 +32,16 @@ void SceneManager::reloadScene()
 	setActiveScene(_activeScene);
 }
 
+Scene* SceneManager::getActiveScene()
+{
+	return _scenes[_activeScene];
+}
+
+Camera* SceneManager::getActiveCamera()
+{
+	return getActiveScene()->getCamera();
+}
+
 void SceneManager::init()
 {
 	_scenes[_activeScene]->init();

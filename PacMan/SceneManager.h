@@ -31,6 +31,9 @@ public:
 	void setActiveScene(int sceneNr);
 	void reloadScene();
 
+	Scene* getActiveScene();
+	Camera* getActiveCamera();
+
 	void init();
 	void update(float deltaTime);
 	void draw(sf::RenderWindow* window);
@@ -39,3 +42,4 @@ private:
 	int _activeScene = 0;
 };
 
+#define SceneManagerInstance SceneManager::getInstance()

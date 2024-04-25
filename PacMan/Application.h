@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <chrono>
 #include "Entity.h"
 #include "SceneManager.h"
 #include "TestScene1.h"

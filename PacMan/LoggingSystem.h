@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 #include <Windows.h>
 
 
@@ -23,10 +24,10 @@ public:
 		}
 	}
 
-	void trace(const char* message);
-	void info(const char* message);
-	void warning(const char* message);
-	void error(const char* message);
+	void trace(std::string message);
+	void info(std::string message);
+	void warning(std::string message);
+	void error(std::string message);
 
 private:
 	HANDLE _terminateHandler;

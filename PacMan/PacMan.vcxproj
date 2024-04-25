@@ -133,22 +133,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnimatedSprite.cpp" />
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntryPoint.cpp" />
     <ClCompile Include="LoggingSystem.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="TestScene1.cpp" />
     <ClCompile Include="TestScene2.cpp" />
+    <ClCompile Include="TileSprite.cpp" />
+    <ClCompile Include="WorldGrid.cpp" />
+    <ClCompile Include="WorldTile.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimatedSprite.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="LoggingSystem.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="Sprite.h" />
     <ClInclude Include="TestScene1.h" />
     <ClInclude Include="TestScene2.h" />
+    <ClInclude Include="TileSprite.h" />
+    <ClInclude Include="WorldGrid.h" />
+    <ClInclude Include="WorldTile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

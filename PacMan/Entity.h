@@ -1,7 +1,10 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "LoggingSystem.h"
+
+#include "Sprite.h"
+
+
 class Entity
 {
 public:
@@ -9,26 +12,20 @@ public:
 	sf::Vector2f position;
 	float rotation;
 	sf::Vector2f scale;
+	Sprite* sprite;
 
-
-	Entity(const char* texturePath, const char* name);
-	Entity(const char* texturePath, const char* name, sf::Vector2f position, float rot, sf::Vector2f scale);
+	//Entity(Sprite* sprite, const char* name);
+	Entity(Sprite* sprite, const char* name, sf::Vector2f position = sf::Vector2f(0, 0), float rot = 0, sf::Vector2f scale = sf::Vector2f(1,1));
+	Entity(Entity& entity);
 
 	~Entity();
 
-	void update(float deltaTime);
-	void draw(sf::RenderWindow *window);
+	virtual void update(float deltaTime);
+	virtual void draw(sf::RenderWindow *window);
 
 private:
 
-	sf::Sprite _sprite;
-	sf::Texture _texture;
 
-	inline void updateTransformations() {
-		_sprite.setPosition(position);
-		_sprite.setRotation(rotation);
-		_sprite.setScale(scale);
-	}
 
 };
 
