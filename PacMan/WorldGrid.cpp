@@ -1,19 +1,28 @@
 #include "WorldGrid.h"
 
-WorldGrid::WorldGrid(int countX, int countY):Entity(nullptr, "worldGrid")
+WorldGrid::WorldGrid(const char* filePath):Entity(nullptr, "worldGrid")
 {
-	this->_countX = countX;
-	this->_countY = countY;
-	
-	for (int i = 0; i < countX; i++)
+	std::ifstream file(filePath);
+
+	file >> _countX >> _countY;
+	for (int i = 0; i < _countX; i++)
 	{
-		for (int j = 0; j < countY; j++)
+		for (int j = 0; j < _countY; j++)
 		{
-			this->_map[i][j] = new Entity(new TileSprite("./res/testCharacter.png", 0, 0, 7, 2), "ent");
-			this->_map[i][j]->position.x = i * _map[i][j]->sprite->sizeX * 5;
-			this->_map[i][j]->position.y = j * _map[i][j]->sprite->sizeY * 5;
-			this->_map[i][j]->scale.x = 5;
-			this->_map[i][j]->scale.y = 5;
+			int tile;
+			file >> tile;
+			std::cout<<tile<<std::endl;
+
+			if (tile == 0)
+				this->_map[i][j] = new WorldTile(true, nullptr,"ent", sf::Vector2f(0,0), sf::Vector2f(5,5));
+			
+			if (tile == 1){
+				this->_map[i][j] = new WorldTile(false, new TileSprite("./res/testCharacter.png", 0, 0, 7, 2), "ent", sf::Vector2f(0, 0), sf::Vector2f(5, 5));
+
+				this->_map[i][j]->position.x = i * _map[i][j]->sprite->sizeX * 5;
+				this->_map[i][j]->position.y = j * _map[i][j]->sprite->sizeY * 5;
+
+			}
 		}
 	}
 }

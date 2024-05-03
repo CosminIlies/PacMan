@@ -4,7 +4,7 @@
 
 void TestScene1::init()
 {
-	addEntity(new WorldGrid(5,5));
+	addEntity(new WorldGrid("./res/map.txt"));
 }
 
 void TestScene1::cleanUp()

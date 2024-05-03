@@ -153,6 +153,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="LoggingSystem.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Sprite.h" />
@@ -161,6 +162,12 @@
     <ClInclude Include="TileSprite.h" />
     <ClInclude Include="WorldGrid.h" />
     <ClInclude Include="WorldTile.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PacMan.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="res\map.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

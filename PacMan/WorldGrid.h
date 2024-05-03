@@ -1,8 +1,11 @@
 #pragma once
 
+#include <iostream>
 #include <vector>
+#include <fstream>
 
 #include "TileSprite.h"
+#include "WorldTile.h"
 #include "Entity.h"
 
 
@@ -10,7 +13,7 @@
 class WorldGrid : public Entity
 {
 public:
-	WorldGrid(int countX, int countY);
+	WorldGrid(const char*filePath);
 	~WorldGrid();
 
 	void update(float deltaTime);
@@ -19,7 +22,7 @@ public:
 private:
 	static const int maxDim = 50;
 	int _countX, _countY;
-	Entity *_map[maxDim][maxDim];
+	WorldTile *_map[maxDim][maxDim];
 
 };
 
