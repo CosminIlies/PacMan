@@ -11,7 +11,10 @@ public:
 	virtual void init() = 0;
 	void update(float deltaTime) {
 		for (Entity *entity: _entities) {
-			entity->update(deltaTime);
+			bool sceenChanged = entity->update(deltaTime);
+			if (sceenChanged) {
+				return;
+			}
 		}
 		_camera->update();
 	} 
@@ -32,8 +35,6 @@ public:
 		return _camera;
 	}
 
-protected:
-
 	void addEntity(Entity* entity) {
 		_entities.push_back(entity);
 	}
@@ -52,7 +53,7 @@ protected:
 			}
 		}
 	}
-
+protected:
 	std::vector<Entity*> _entities;
 	Camera* _camera;
 

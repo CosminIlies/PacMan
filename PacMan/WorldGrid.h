@@ -1,28 +1,42 @@
 #pragma once
 
 #include <iostream>
-#include <vector>
 #include <fstream>
 
 #include "TileSprite.h"
 #include "WorldTile.h"
 #include "Entity.h"
-
+#include "Enemy.h"
+#include "SceneManager.h"
 
 
 class WorldGrid : public Entity
 {
 public:
-	WorldGrid(const char*filePath);
+	WorldGrid(const char*filePath, int tileSize = 16);
 	~WorldGrid();
 
-	void update(float deltaTime);
+	bool update(float deltaTime);
 	void draw(sf::RenderWindow* window);
 
-private:
+	WorldTile* getTile(int x, int y);
+	bool canWalkHorizontal(sf::Vector2f pos);
+	bool canWalkVertical(sf::Vector2f pos);
+	void resetGrid();
+	inline int getTileSize() { return tileSize; }
+	inline int getCountX() { return countX; }
+	inline int getCountY() { return countY; }
+
+
 	static const int maxDim = 50;
-	int _countX, _countY;
-	WorldTile *_map[maxDim][maxDim];
+	WorldTile *map[maxDim][maxDim];
+	bool horizontalCollisionMask[maxDim][maxDim];
+	bool verticalCollisionMask[maxDim][maxDim];
+
+	int tileSize;
+	int countX, countY;
+	std::vector<sf::Vector2f> enemies;
+
 
 };
 

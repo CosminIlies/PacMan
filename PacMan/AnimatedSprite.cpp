@@ -2,11 +2,12 @@
 
 
 
-AnimatedSprite::AnimatedSprite(const char* textureFile, int x, int y, int countX, int countY, float speed = 1.0f) :
+AnimatedSprite::AnimatedSprite(const char* textureFile, int countX, int countY, float speed, int x, int y) :
 	TileSprite(textureFile, x, y, countX, countY),
 	speed(speed)
 {
 }
+
 
 AnimatedSprite::~AnimatedSprite()
 {

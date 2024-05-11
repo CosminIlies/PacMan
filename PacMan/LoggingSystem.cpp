@@ -1,5 +1,6 @@
 #include "LoggingSystem.h"
 LoggingSystem* LoggingSystem::_instance = nullptr;
+
 void LoggingSystem::trace(std::string message)
 {
 	int color = 15;

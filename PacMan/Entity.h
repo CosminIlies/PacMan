@@ -20,7 +20,7 @@ public:
 
 	~Entity();
 
-	virtual void update(float deltaTime);
+	virtual bool update(float deltaTime);
 	virtual void draw(sf::RenderWindow *window);
 
 private:

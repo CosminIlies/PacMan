@@ -35,7 +35,7 @@ private:
 
 };
 
-#define LOG_TRACE(x) LoggingSystem::getInstance()->trace(x);
+#define LOG_TRACE(...) LoggingSystem::getInstance()->trace(x);
 #define LOG_INFO(x) LoggingSystem::getInstance()->info(x);
 #define LOG_WARNING(x) LoggingSystem::getInstance()->warning(x);
 #define LOG_ERROR(x) LoggingSystem::getInstance()->error(x);

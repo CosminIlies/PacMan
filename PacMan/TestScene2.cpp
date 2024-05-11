@@ -2,11 +2,7 @@
 
 void TestScene2::init()
 {
-	addEntity(new Entity(new Sprite("./res/Dirt.tga"), "TestEntity", sf::Vector2f(0, 0), 0, sf::Vector2f(1, 1)));
-	addEntity(new Entity(new Sprite("./res/Dirt.tga"), "TestEntity", sf::Vector2f(500, 0), 0, sf::Vector2f(1, 1)));
-	addEntity(new Entity(new Sprite("./res/Dirt.tga"), "TestEntity", sf::Vector2f(1000, 0), 0, sf::Vector2f(1, 1)));
-	addEntity(new Entity(new Sprite("./res/Dirt.tga"), "TestEntity", sf::Vector2f(1500, 0), 0, sf::Vector2f(1, 1)));
-
+	
 }
 
 void TestScene2::cleanUp()

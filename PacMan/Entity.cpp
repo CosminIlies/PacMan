@@ -19,7 +19,7 @@ Entity::Entity(Entity& entity) {
 	position = entity.position;
 	rotation = entity.rotation;
 	scale = entity.scale;
-	this->sprite = new Sprite(* entity.sprite);
+	this->sprite = new Sprite(*entity.sprite);
 }
 
 Entity::~Entity()
@@ -29,11 +29,11 @@ Entity::~Entity()
 	delete sprite;
 }
 
-void Entity::update(float deltaTime)
+bool Entity::update(float deltaTime)
 {
 
 	if (sprite == nullptr)
-		return;
+		return false;
 
 	sprite->updateSprite(position, rotation, scale, deltaTime);
 }
