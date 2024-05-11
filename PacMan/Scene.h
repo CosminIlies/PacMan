@@ -6,9 +6,13 @@
 
 class Scene {
 public:
-	Scene(sf::RenderWindow* window) { _camera = new Camera(window); }
+	Scene(sf::RenderWindow* window) {
+		this->window = window;
+		
+		init();
+	}
 
-	virtual void init() = 0;
+	virtual void init() { _camera = new Camera(window); }
 	void update(float deltaTime) {
 		for (Entity *entity: _entities) {
 			bool sceenChanged = entity->update(deltaTime);
@@ -54,6 +58,7 @@ public:
 		}
 	}
 protected:
+	sf::RenderWindow* window;
 	std::vector<Entity*> _entities;
 	Camera* _camera;
 

@@ -4,8 +4,10 @@
 int main()
 {
 
-    Application app(1600,900, "PacMan");
-    app.start();
+    //Application app(1600,900, "PacMan");
+    ApplicationInstance->init(1600, 900, "Pacman");
+
+    ApplicationInstance->start();
 
    
     return 0;

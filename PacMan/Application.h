@@ -3,23 +3,34 @@
 #include <chrono>
 #include "Entity.h"
 #include "SceneManager.h"
+#include "MainMenu.h"
 #include "TestScene1.h"
-#include "TestScene2.h"
+#include "GameOver.h"
 
 
 class Application
 {
 public:
+	sf::RenderWindow* window;
 
-	Application(int width, int height, const char* name);
+	void init(int width, int height, const char* name);
+
+	static Application* getInstance();
+
 	~Application();
 
 	void start();
+	void stop();
 
 private:
-	sf::RenderWindow* _window;
+
+	static Application* instance;
+	Application(int width, int height, const char* name);
+
+
 	SceneManager* sceneManager;
 
 
 };
 
+#define ApplicationInstance Application::getInstance()

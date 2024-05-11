@@ -7,6 +7,7 @@
 
 void TestScene1::init()
 {
+	Scene::init();
 	WorldGrid* wg = new WorldGrid("./res/map.txt");
 	Player* player = new Player(wg, "Player", new AnimatedSprite("./res/pacman.png", 3, 2, 1000.0f), 0.25f, sf::Vector2f(16 * 5, 16 * 5), sf::Vector2f(5, 5));
 
@@ -31,8 +32,5 @@ void TestScene1::init()
 
 void TestScene1::cleanUp()
 {
-	for (int i = 0; i < _entities.size(); i++) { 
-		delete _entities[i];
-	}
-	_entities.clear();
+	Scene::cleanUp();
 }
