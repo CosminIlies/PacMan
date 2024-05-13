@@ -30,7 +30,7 @@ Button::~Button()
 
 bool Button::update(float deltaTime)
 {
-    std::cout << text<<'\n';
+
     Entity::update(deltaTime);
 
 
@@ -54,9 +54,7 @@ bool Button::update(float deltaTime)
 void Button::draw(sf::RenderWindow* window)
 {
     this->windowPtr = window;
-    
-    
-
+  
     Entity::draw(window);
     window->draw(buttonText);
     

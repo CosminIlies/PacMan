@@ -10,7 +10,8 @@ public:
 	~Camera();
 	void update();
 
-	sf::View view;
+	sf::View normalView;
+	sf::View guiView;
 	sf::Vector2f position;
 	float rotation;
 	sf::Vector2f size;

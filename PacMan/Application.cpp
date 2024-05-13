@@ -44,7 +44,7 @@ void Application::start()
         }
 
         window->clear();
-        window->setView(sceneManager->getActiveScene()->getCamera()->view);
+        window->setView(sceneManager->getActiveScene()->getCamera()->normalView);
 
         sceneManager->update(deltaTime);
         sceneManager->draw(window);

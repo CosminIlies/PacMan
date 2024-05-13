@@ -1,10 +1,10 @@
 #include "Camera.h"
 
-Camera::Camera(sf::RenderWindow *window):view(window->getDefaultView())
+Camera::Camera(sf::RenderWindow *window):normalView(window->getDefaultView())
 {
-	position = view.getCenter();
-	rotation = view.getRotation();
-	size = view.getSize();
+	position = normalView.getCenter();
+	rotation = normalView.getRotation();
+	size = normalView.getSize();
 }
 
 Camera::~Camera()
@@ -13,7 +13,7 @@ Camera::~Camera()
 
 void Camera::update()
 {
-	view.setCenter(position);
-	view.setRotation(rotation);
-	view.setSize(size);
+	normalView.setCenter(position);
+	normalView.setRotation(rotation);
+	normalView.setSize(size);
 }

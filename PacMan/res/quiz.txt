@@ -1,0 +1,20 @@
+Este poluarea rea?
+da
+nu
+poate
+da mi 10 lei si ti zic
+0
+
+Cat de rea este poluarea?
+buna
+rea
+de unde sa stiu
+foarte rea, da mi 10 lei si ti zic (iubesc raspunsurile generate de copilot)
+2
+
+De ce este poluarea rea?
+pentru ca dauneaza mediului
+pentru ca dauneaza sanatatii
+pentru ca dauneaza mediului si sanatatii
+pentru ca dauneaza mediului, sanatatii si economiei
+3

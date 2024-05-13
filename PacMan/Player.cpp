@@ -1,9 +1,10 @@
 #include "Player.h"
 
-Player::Player(WorldGrid* grid, const char* name, Sprite* sprite, float speed, sf::Vector2f position, sf::Vector2f scale) : Entity(sprite, name, position, 0, scale)
+Player::Player(WorldGrid* grid, Camera* camera, const char* name, Sprite* sprite, float speed, sf::Vector2f position, sf::Vector2f scale) : Entity(sprite, name, position, 0, scale)
 {
 		this->_speed = speed;
 		this->grid = grid;
+		this->camera = camera;
 }
 
 Player::~Player()
@@ -13,6 +14,7 @@ Player::~Player()
 bool Player::update(float dt)
 {
 	Entity::update(dt);
+	camera->position = position;
 	sf::Vector2f dir = sf::Vector2f(0, 0);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
@@ -63,8 +65,6 @@ bool Player::update(float dt)
 	dir.y /= magnitude;
 
 	dir = dir * _speed * dt;
-
-	std::cout<<dir.x<<" "<<dir.y<<std::endl;
 
 	position += dir;
 	return false;
