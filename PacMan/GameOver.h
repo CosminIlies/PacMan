@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/Audio.hpp>
 #include "Scene.h"
 #include "Entity.h"
 #include "Button.h"
@@ -13,5 +14,7 @@ public:
 	void cleanUp();
 
 private:
-
+	sf::SoundBuffer* buffer;
+	sf::Sound* sound;
+	sf::Music* music;
 };

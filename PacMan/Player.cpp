@@ -37,27 +37,6 @@ bool Player::update(float dt)
 	{
 		return false;
 	}
-	if (dir.x > 0) {
-		if (!grid->getTile(position.x / 16.0 / 5.0 +   dir.x, position.y / 16.0 / 5.0 +   dir.y)->isWalkable) {
-			return false;
-		}
-	}
-	if (dir.x < 0) {
-		if (!grid->getTile(position.x / 16.0 / 5.0 +   dir.x + 1, position.y / 16.0 / 5.0 +   dir.y)->isWalkable) {
-			return false;
-		}
-	}
-
-	if (dir.y > 0) {
-		if (!grid->getTile(position.x / 16.0 / 5.0 +   dir.x, position.y / 16.0 / 5.0 +   dir.y)->isWalkable) {
-			return false;
-		}
-	}
-	if (dir.y < 0) {
-		if (!grid->getTile(position.x / 16.0 / 5.0 +   dir.x, position.y / 16.0 / 5.0 +   dir.y + 1)->isWalkable) {
-			return false;
-		}
-	}
 
 	float magnitude = sqrt(dir.x * dir.x + dir.y * dir.y);
 
@@ -67,6 +46,47 @@ bool Player::update(float dt)
 	dir = dir * _speed * dt;
 
 	position += dir;
+
+
+	for (int i = 0; i < grid->countX; i++) {
+		for (int j = 0; j < grid->countY; j++) {
+
+			WorldTile* tile = grid->getTile(i, j);
+
+			if (tile->isWalkable) {
+				continue;
+			}
+
+			sf::Vector2f tilePos = sf::Vector2f(i * 16.0 * 5.0, j * 16.0 * 5.0);
+
+			float halfedTileSize = 16 * 5 / 2;
+
+			float deltaX = tilePos.x - position.x;
+			float deltaY = tilePos.y - position.y;
+
+			float intersectX = abs(deltaX) - (halfedTileSize - 5 + halfedTileSize);
+			float intersectY = abs(deltaY) - (halfedTileSize - 5 + halfedTileSize);
+
+			if (intersectX < 0 && intersectY < 0) {
+				if (intersectX > intersectY) {
+					if (deltaX > 0) {
+						position.x += intersectX;
+					}
+					else {
+						position.x -= intersectX;
+					}
+				}
+				else {
+					if (deltaY > 0) {
+						position.y += intersectY;
+					}
+					else {
+						position.y -= intersectY;
+					}
+				}
+			}
+		}
+	}
 	return false;
 
 }

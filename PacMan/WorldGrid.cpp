@@ -31,38 +31,6 @@ WorldGrid::WorldGrid(const char* filePath, int tileSize):Entity(nullptr, "worldG
 
 	file.close();
 
-	std::cout << "HORIZONTAL:\n";
-	for (int j = 0; j < countY-1; j++)
-	{
-		for (int i = 0; i < countX-1; i++)
-		{
-			if (map[i][j]->isWalkable && map[i+1][j]->isWalkable) {
-				horizontalCollisionMask[i][j] = true;
-				std::cout<< "1 ";
-			}
-			else {
-				horizontalCollisionMask[i][j] = false;
-				std::cout << "0 ";
-			}
-		}
-			std::cout << "\n";
-	}
-	std::cout << "VERTICAL\n";
-	for (int j = 0; j < countY - 1; j++)
-	{
-		for (int i = 0; i < countX - 1; i++)
-		{
-			if (map[i][j]->isWalkable && map[i][j+1]->isWalkable) {
-				verticalCollisionMask[i][j] = true;
-				std::cout << "1 ";
-			}
-			else {
-				verticalCollisionMask[i][j] = false;
-				std::cout << "0 ";
-			}
-		}
-			std::cout << "\n";
-	}
 }
 
 WorldGrid::~WorldGrid()

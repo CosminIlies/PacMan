@@ -1,4 +1,6 @@
 #pragma once
+#include <SFML/Audio.hpp>
+
 #include"Scene.h"
 #include "Sprite.h"
 #include"WorldGrid.h"
@@ -18,6 +20,6 @@ public:
 	void cleanUp();
 
 private:
-
+	sf::Music* music;
 };
 

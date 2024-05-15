@@ -3,6 +3,18 @@
 void GameOver::init()
 {
 	Scene::init();
+	buffer = new sf::SoundBuffer();
+	if (buffer->loadFromFile("./res/death.mp3"))
+	{
+		sound = new sf::Sound();
+		sound->setBuffer(*buffer);
+		sound->play();
+	}
+	music = new sf::Music();
+	if (music->openFromFile("./res/deathmusic.mp3")) {
+		music->play();
+	}
+
 	Text* text = new Text("Game Over",
 		"./res/square-deal.ttf",
 		128,
@@ -28,4 +40,7 @@ void GameOver::init()
 void GameOver::cleanUp()
 {
 	Scene::cleanUp();
+	delete buffer;
+	delete sound;
+	delete music;
 }

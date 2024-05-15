@@ -11,7 +11,7 @@ AstarAI::~AstarAI()
 
 void AstarAI::updatePath(sf::Vector2i start, sf::Vector2i dest)
 {
-
+	std::cout << "UPDATE PATH\n";
 	_worldGrid->resetGrid();
 	closeList.clear();
 	openList.clear();
@@ -48,7 +48,6 @@ void AstarAI::updatePath(sf::Vector2i start, sf::Vector2i dest)
 		int y = currentNode->y;
 
 		if (currentNode == endNode) {
-			cout << "PATH FOUND BITCII: " << currentNode->gCost << endl;
 			processPath();
 			break;
 		}
@@ -141,7 +140,7 @@ void AstarAI::updatePath(sf::Vector2i start, sf::Vector2i dest)
 
 	}
 
-
+	processPath();
 }
 
 void AstarAI::processPath()

@@ -49,5 +49,5 @@ bool Enemy::goToPoint(sf::Vector2f point, float dt)
 		position += dir * speed * dt;
 	}
 
-	return len < 5;
+	return len < 5 && point != sf::Vector2f(0,0);
 }
