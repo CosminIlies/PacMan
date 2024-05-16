@@ -37,7 +37,7 @@ void TestScene1::init()
 	Fruit* lemon = new Fruit(wg, player, 2, "Lemon", new TileSprite("./res/fruits.png", 2, 0, 4, 1), sf::Vector2f(5, 5));
 	Fruit* melon = new Fruit(wg, player, 3, "Melon", new TileSprite("./res/fruits.png", 3, 0, 4, 1), sf::Vector2f(5, 5));
 
-	QuizGUI* quiz = new QuizGUI(new Sprite("./res/wallTest1.png"), sf::Vector2f(800, 0), 0, sf::Vector2f(100, 25));
+	QuizGUI* quiz = new QuizGUI(new Sprite("./res/quizBg.png"), sf::Vector2f(800, 110), 0, sf::Vector2f(10, 10));
 
 	addEntity(wg);
 	addEntity(enemy);

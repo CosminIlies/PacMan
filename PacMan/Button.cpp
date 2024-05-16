@@ -8,14 +8,14 @@ Button::Button(const char* text, std::function<bool()> onPress, Sprite* sprite, 
     this->text = text;
 
 
-    if (font.loadFromFile("res/square-deal.ttf"))
+    if (font.loadFromFile("./res/m6x11plus.ttf"))
     {
 		this->buttonText.setFont(font);
 		this->buttonText.setString(text);
 		this->buttonText.setCharacterSize(56);
 		this->buttonText.setFillColor(sf::Color::White);
 		this->buttonText.setPosition(position.x, position.y);
-        this->buttonText.setOrigin(buttonText.getGlobalBounds().width / 2, buttonText.getGlobalBounds().height / 2);
+        this->buttonText.setOrigin(buttonText.getGlobalBounds().width / 2, buttonText.getGlobalBounds().height );
 	}
     else
     {

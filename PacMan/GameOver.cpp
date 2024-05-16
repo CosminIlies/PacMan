@@ -22,16 +22,16 @@ void GameOver::init()
 		sf::Vector2f(800, 200),
 		0, sf::Vector2f(2, 2));
 
-	Button* toMainMenu = new Button("Return To main menu",
+	Button* toMainMenu = new Button("Return to Main Menu",
 				[]() { 
 			SceneManagerInstance->previousScene();
 			SceneManagerInstance->previousScene(); 
 			return true;
 		},
-				new Sprite("./res/wallTest1.png"),
+				new Sprite("./res/buttonBg.png"),
 				sf::Vector2f(800, 500),
 				0,
-				sf::Vector2f(40, 10));
+				sf::Vector2f(15, 15));
 
 	addEntity(text);
 	addEntity(toMainMenu);
