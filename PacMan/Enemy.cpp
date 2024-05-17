@@ -35,7 +35,7 @@ bool Enemy::update(float dt)
 void Enemy::draw(sf::RenderWindow* window)
 {
 	Entity::draw(window);
-	window->draw(ai->getPath(), ai->getPathSize(), sf::Lines);
+	//window->draw(ai->getPath(), ai->getPathSize(), sf::Lines);
 }
 
 bool Enemy::goToPoint(sf::Vector2f point, float dt)

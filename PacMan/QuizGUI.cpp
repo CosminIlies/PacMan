@@ -42,7 +42,7 @@ void QuizGUI::draw(sf::RenderWindow* window)
 void QuizGUI::setQuestion(Question* q)
 {
     question = q;
-    questionText.setString(q->question + "\n\n apple " + q->options[0] + "\n orange " + q->options[1] + "\n lemon " + q->options[2] + "\n melon " + q->options[3]+"\n\n Press e to eat the fruit...");
+    questionText.setString(q->question + "\n\n apple - " + q->options[0] + "\n orange - " + q->options[1] + "\n lemon - " + q->options[2] + "\n melon - " + q->options[3]+"\n\n Press e to eat the fruit...");
     questionText.setOrigin(questionText.getGlobalBounds().width / 2, questionText.getGlobalBounds().height / 2);
 }
 
